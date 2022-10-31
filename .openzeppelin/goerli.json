@@ -2,30 +2,55 @@
   "manifestVersion": "3.2",
   "proxies": [
     {
-      "address": "0xee0a03777B7751A871D2E448D197FC6a366BDAb4",
-      "txHash": "0xcdf52c49320d84d1b9b9131e8d9b457c1558e84bafecf73d040b1fd154709e69",
+      "address": "0xc7B7e881ae01924536645c81E8961Ce1d3c4bF3F",
+      "txHash": "0x62f1f3a3c062f6e3d20325899804863871a15f5f7bc3e64db7ee615ab02f3f3a",
       "kind": "uups"
     },
     {
-      "address": "0x5b9A124bbdbE4Ea72c640D55122dB8Da5BE2507D",
-      "txHash": "0x59afd7d5c239ba0f9919bda9a2c39bc48be42bf1eb61a85944b751504832fd16",
+      "address": "0x302B87D4fE0207b8D96C18f9e9f92f7e5081ca52",
+      "txHash": "0x28203e7ddab825b55b7fde07099c22c4dd93935ce8ed1cd01c42fff78a235b77",
       "kind": "uups"
     },
     {
-      "address": "0xb404ab334d7Cf931bd77c8C9a11c5a2745b31094",
-      "txHash": "0xaf13f9826334bc24f621f4fa0a240cd615aeee4fc5318e9744afb19d31411f6f",
+      "address": "0x73f82ad41642aC7EE727d42b502dF7E159f631B5",
+      "txHash": "0x60c40243b0e612ffd5a2bc8455d7d3f98d91a3ec0c808728d318a423a82ab2ad",
       "kind": "uups"
     },
     {
-      "address": "0xd0dA50bF013dC3Cfb5D04f63014DBAfEfF36686e",
-      "txHash": "0x5e62a1513c6ed96e4926ef662a984263127dcda2161bd300572287349cbc433f",
+      "address": "0xe22ad289DC7E693e6a00F1466aC9458e6126b1E5",
+      "txHash": "0x96b40009f478cf13f19d91ced712f2ce0516fa4ac5490d61e684b7db4d8aa459",
+      "kind": "uups"
+    },
+    {
+      "address": "0x90d533794312d018f003dFc8bf7eBBb9821E8622",
+      "txHash": "0x432f34054da6ecde2b42d54e02414f7e984b65b79d0dcac26e6f6ea5e6f46f52",
+      "kind": "uups"
+    },
+    {
+      "address": "0x437bbb9F6F83c3a9F5795ecc10b390C58F81290a",
+      "txHash": "0x8dab274f4b814c349a00a7c668177307cf6d224faa60e3748ee295ba444c13aa",
+      "kind": "uups"
+    },
+    {
+      "address": "0x53aF7CD8B1D3dADce491429581263f2cB4E989c4",
+      "txHash": "0x5de06da462a27073be1e099c7cfbfe28457fc5eb24169f45206f55c89891aee9",
+      "kind": "uups"
+    },
+    {
+      "address": "0x4a5Da1A1bC95D0840C662d9250fe0530D52d9F43",
+      "txHash": "0x4759ccfa7b9cc8d8a76b4a48920684fe378076e666abb312d1101421271739b6",
+      "kind": "uups"
+    },
+    {
+      "address": "0xd2ccfC2d6522b77eA77ADa25dEf7Bd8C7ba629F1",
+      "txHash": "0xe9340f427ad6b377f4521c18b3f1d37ae34bdf7799f5a7bf63bc140a49e37c0a",
       "kind": "uups"
     }
   ],
   "impls": {
-    "b07fa01fb588abaaf1da6b8b673268248ecc74c9a71932660e81b3898bb9bbb1": {
-      "address": "0x1f26620123B17d4cBB1864E47249053b28354659",
-      "txHash": "0xebaf212a32f3656eb8f91f724c5052beb8cc002f254a7c910cf3bffc866d3564",
+    "d2a0fab906b1f790e0f258043dbede700c9f2b30371f46b07da473ff30c9b992": {
+      "address": "0x06dE2935340dA1fe798E1ac71b276bF3a5D64199",
+      "txHash": "0x3e82b7d0b3b85215b8ae814f17eb7e72044e517c938269da9bd8741930f1766a",
       "layout": {
         "solcVersion": "0.8.4",
         "storage": [
@@ -252,7 +277,7 @@
             "slot": "551",
             "type": "t_struct(Counter)3457_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:19"
+            "src": "contracts/BoostNFT.sol:27"
           },
           {
             "label": "tokenPrices",
@@ -260,7 +285,7 @@
             "slot": "552",
             "type": "t_array(t_uint256)5_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:27"
+            "src": "contracts/BoostNFT.sol:35"
           },
           {
             "label": "whiteLists",
@@ -268,7 +293,7 @@
             "slot": "557",
             "type": "t_array(t_address)dyn_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:28"
+            "src": "contracts/BoostNFT.sol:36"
           },
           {
             "label": "locked",
@@ -276,7 +301,7 @@
             "slot": "558",
             "type": "t_bool",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:29"
+            "src": "contracts/BoostNFT.sol:37"
           },
           {
             "label": "data",
@@ -284,7 +309,7 @@
             "slot": "559",
             "type": "t_mapping(t_uint256,t_struct(Datas)5364_storage)",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:38"
+            "src": "contracts/BoostNFT.sol:46"
           }
         ],
         "types": {
@@ -481,9 +506,9 @@
         }
       }
     },
-    "75dd22140e2a3557d5e74a933aa7d88dd5602e121ccc8f22fbd1ced5f3f7b730": {
-      "address": "0x95f9f5B53c8207e3dc9aAb8C7e4D2efe7B62718b",
-      "txHash": "0x25137358de0e8e3f50b0fbf60534d3746004fa84cef9d758849b32113070f4ac",
+    "389bd59e9c388aaa3a75d7f07f7b41e1b64fde93de15e0671e222e89c1908df0": {
+      "address": "0xCc784a2732C91062E2b36395A43335De0351A68d",
+      "txHash": "0x8b3d0af8f1fa17a13ea2ff86ec4981293839f490d59b6a03a2520dad601af870",
       "layout": {
         "solcVersion": "0.8.4",
         "storage": [
@@ -710,7 +735,7 @@
             "slot": "551",
             "type": "t_struct(Counter)3457_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:26"
+            "src": "contracts/BoostNFT.sol:27"
           },
           {
             "label": "tokenPrices",
@@ -718,7 +743,7 @@
             "slot": "552",
             "type": "t_array(t_uint256)5_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:34"
+            "src": "contracts/BoostNFT.sol:35"
           },
           {
             "label": "whiteLists",
@@ -726,7 +751,7 @@
             "slot": "557",
             "type": "t_array(t_address)dyn_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:35"
+            "src": "contracts/BoostNFT.sol:36"
           },
           {
             "label": "locked",
@@ -734,7 +759,7 @@
             "slot": "558",
             "type": "t_bool",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:36"
+            "src": "contracts/BoostNFT.sol:37"
           },
           {
             "label": "data",
@@ -742,7 +767,7 @@
             "slot": "559",
             "type": "t_mapping(t_uint256,t_struct(Datas)5364_storage)",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:45"
+            "src": "contracts/BoostNFT.sol:46"
           }
         ],
         "types": {
@@ -940,8 +965,8 @@
       }
     },
     "68d9fdf68b82f7b1cc648b6e9365eb20011f47d56f31fad6554fc60748f939ec": {
-      "address": "0x9e2957aB2e3Ac7142eeD8a9f9eDBF71Ab4012e2D",
-      "txHash": "0x66e7a72a670ccf63145ed37348204cc92000628213b1a1e40204fc86a8ec10ea",
+      "address": "0x5a68B3b9a76e24a2C302D6A43CD10F654C06A211",
+      "txHash": "0xe14b359da3549fb11ba7eb7ecc15328b674d2e8b98fd4842bfbf673cd07a6184",
       "layout": {
         "solcVersion": "0.8.4",
         "storage": [
@@ -1072,7 +1097,7 @@
             "slot": "155",
             "type": "t_array(t_uint256)46_storage",
             "contract": "ERC721EnumerableUpgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol:190"
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol:191"
           },
           {
             "label": "_tokenURIs",
@@ -1168,7 +1193,7 @@
             "slot": "551",
             "type": "t_struct(Counter)3457_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:20"
+            "src": "contracts/BoostNFT.sol:27"
           },
           {
             "label": "tokenPrices",
@@ -1176,7 +1201,7 @@
             "slot": "552",
             "type": "t_array(t_uint256)5_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:28"
+            "src": "contracts/BoostNFT.sol:35"
           },
           {
             "label": "whiteLists",
@@ -1184,7 +1209,7 @@
             "slot": "557",
             "type": "t_array(t_address)dyn_storage",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:29"
+            "src": "contracts/BoostNFT.sol:36"
           },
           {
             "label": "locked",
@@ -1192,7 +1217,7 @@
             "slot": "558",
             "type": "t_bool",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:30"
+            "src": "contracts/BoostNFT.sol:37"
           },
           {
             "label": "data",
@@ -1200,7 +1225,7 @@
             "slot": "559",
             "type": "t_mapping(t_uint256,t_struct(Datas)5364_storage)",
             "contract": "BoostNFT",
-            "src": "contracts/BoostNFT.sol:39"
+            "src": "contracts/BoostNFT.sol:46"
           }
         ],
         "types": {

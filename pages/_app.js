@@ -10,9 +10,9 @@ const modalConfig = {
   ethereum: {
     appName: "Logout mint",
     chains: [
-      // chains.goerli,
+      chains.goerli,
       // chains.binanceSmartChain,
-      chains.binanceSmartChainTestnet,
+      // chains.binanceSmartChainTestnet,
     ],
     providers: [
       providers.walletConnectProvider({

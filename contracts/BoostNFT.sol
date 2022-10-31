@@ -10,6 +10,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721Burnab
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
+
 import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol";
 
@@ -44,7 +45,10 @@ contract BoostNFT is
 
     mapping(uint256 => Datas) data;
     modifier checkWhiteList(address userAddress) {
-        require(!locked || (locked && exists(userAddress)));
+        require(
+            !locked || (locked && exists(userAddress)),
+            "this funcition is locked."
+        );
         _;
     }
 
@@ -67,11 +71,16 @@ contract BoostNFT is
         _grantRole(MINTER_ROLE, msg.sender);
         _grantRole(UPGRADER_ROLE, msg.sender);
         tokenPrices = [
-            0.024 * 10**18,
-            0.024 * 10**18,
-            0.072 * 10**18,
-            0.14 * 10**18,
-            0.22 * 10**18
+            0,
+            0,
+            0,
+            0,
+            0
+            // 0.024 * 10**18,
+            // 0.024 * 10**18,
+            // 0.072 * 10**18,
+            // 0.14 * 10**18,
+            // 0.22 * 10**18
         ];
         locked = false;
     }
@@ -88,16 +97,11 @@ contract BoostNFT is
         _unpause();
     }
 
-    function safeMint(address to, uint256 metaDataId)
-        public
-        payable
-        checkWhiteList(to)
+    function mint(address to, uint256 metaDataId)
+        private
+        checkWhiteList(msg.sender)
         returns (uint256)
     {
-        require(
-            msg.value >= tokenPrices[metaDataId - 1],
-            "You must pay enough BNB"
-        );
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
@@ -127,19 +131,31 @@ contract BoostNFT is
         return tokenId;
     }
 
+    function safeMint(address to, uint256 metaDataId)
+        public
+        payable
+        returns (uint256)
+    {
+        require(
+            msg.value > tokenPrices[metaDataId - 1],
+            "You must pay enough BNB"
+        );
+        uint256 tokenId = mint(to, metaDataId);
+        return tokenId;
+    }
+
     function multiSafeMint(address to, uint256[] memory metaDataIds)
         public
         payable
         returns (uint256[] memory)
     {
         require(
-            getTotalPrice(metaDataIds) <= msg.value,
+            msg.value > getTotalPrice(metaDataIds),
             "You must pay enough BNB"
         );
-        uint256[] memory ids;
+        uint256[] memory ids = new uint256[](uint256(metaDataIds.length));
         for (uint256 i = 0; i < metaDataIds.length; i++) {
-            uint256 id = safeMint(to, metaDataIds[i]);
-            ids[i] = id;
+            ids[i] = mint(to, metaDataIds[i]);
         }
         return ids;
     }
@@ -238,13 +254,11 @@ contract BoostNFT is
             );
     }
 
-    function getTotalPrice(uint256[] memory arr)
-        private
-        view
-        returns (uint256)
-    {
+    function getTotalPrice(uint256[] memory arr) public view returns (uint256) {
         uint256 sum = 0;
-        for (uint256 i = 0; i < arr.length; i++) sum = sum + tokenPrices[i];
+
+        for (uint256 i = 0; i < arr.length; i++)
+            sum = sum + tokenPrices[arr[i] - 1];
         return sum;
     }
 
@@ -254,7 +268,10 @@ contract BoostNFT is
                 return true;
             }
         }
-
         return false;
+    }
+
+    function withdraw() external onlyRole(MINTER_ROLE) {
+        payable(msg.sender).transfer(address(this).balance);
     }
 }
