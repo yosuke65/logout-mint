@@ -22,8 +22,6 @@ import BNB from "../public/images/bnb-logo.png";
 import Image from "next/image";
 import boostNFT from "./BoostNFT.json";
 
-const boostNFTAddress = "0xd2ccfC2d6522b77eA77ADa25dEf7Bd8C7ba629F1";
-
 const baseURL =
   "https://gateway.pinata.cloud/ipfs/QmVV9wxKn4QhucX4R6dwujwdx3eMYkZAuMVbyKLEaeF3Zq/";
 
@@ -33,8 +31,7 @@ const METADATA_ID = 2;
 
 const MAX_MINT_LIMIT = 4;
 
-// const tokenPrices = [0.024, 0.024, 0.072, 0.14, 0.22];
-const tokenPrices = [0, 0, 0, 0, 0];
+const tokenPrices = [0.024, 0.024, 0.072, 0.14, 0.22];
 
 const rarityDescription = [
   "Common",
@@ -95,7 +92,6 @@ export default function Home() {
       totalPrice += tokenPrices[i];
     }
     totalPrice += 0.00001;
-    console.log(totalPrice);
     return totalPrice;
   }
 
@@ -116,10 +112,7 @@ export default function Home() {
         console.log("isMinted", data.data[0].isMinted);
         console.log("amount", data.data[0].amount);
         setCurrentMintAmount(data.data[0].amount);
-        setIsMintEligible(
-          true
-          // !data.data[0].isMinted
-        );
+        setIsMintEligible(!data.data[0].isMinted);
       });
   }
 
@@ -137,7 +130,7 @@ export default function Home() {
         }
       })
       .then((data) => {
-        console.log("Mint data saved");
+        console.log("Mint data saved", data);
       });
   }
 
@@ -161,18 +154,13 @@ export default function Home() {
 
   async function handleMint() {
     const signer = await connector.getSigner();
-    const contract = new ethers.Contract(boostNFTAddress, boostNFT.abi, signer);
+    const contract = new ethers.Contract(process.env.CONTRACT_ADDRESS, boostNFT.abi, signer);
     try {
       setNftMetadata([{}]);
       setIsMinting(true);
       setIsMintFailed(false);
       setIsMintSuccess(false);
-      // For dev only ------------------------------------------------------------
-      console.log("Checking whitelist...");
-      // await contract.addWhiteList("0x62a2cE0A0A898d8bBA66018c4a4D8DB6C46D661C");
-      const isWhiteListed = await contract.exists(address);
-      console.log("isWhitelisted: ", isWhiteListed);
-      // For dev only ------------------------------------------------------------
+
       let response;
       if (mintAmount > 1) {
         let ids = [];
@@ -275,7 +263,6 @@ export default function Home() {
             <>
               <Container centerContent p="5">
                 <Image
-                  // src="https://ipfs.io/ipfs/QmYZPnxXZS3tNTj75is2853rxv85wToiFfZ2M3ZQhmb2i4/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%B9%E3%83%AA%E3%83%BC%E3%83%91%E3%83%BC.jpg"
                   src={metadata.image ? metadata.image : Room}
                   width={isMobile ? "300px" : "500px"}
                   height={isMobile ? "300px" : "500px"}

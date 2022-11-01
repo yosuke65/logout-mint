@@ -10,18 +10,18 @@ const modalConfig = {
   ethereum: {
     appName: "Logout mint",
     chains: [
-      chains.goerli,
-      // chains.binanceSmartChain,
+      // chains.goerli,
       // chains.binanceSmartChainTestnet,
+      chains.binanceSmartChain
     ],
     providers: [
       providers.walletConnectProvider({
-        projectId: "c844211fea2ca447b59e0bee2e26d06e",
+        projectId: process.env.WALLET_CONNECT_PROJECT_ID,
       }),
     ],
     autoConnect: false,
   },
-  projectId: "c844211fea2ca447b59e0bee2e26d06e",
+  projectId: process.env.WALLET_CONNECT_PROJECT_ID,
 };
 
 function MyApp({ Component, pageProps }) {
